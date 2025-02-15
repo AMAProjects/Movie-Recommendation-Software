@@ -11,8 +11,8 @@ def call_program():
 #The 
 def insert_genres():
     print('\n' + 'Perfect! Here are our available genres: ' + '\n')
-    for genre in genres:
-        print('- ' + genre + '\n')
+    for i, genre in enumerate(genres, start = 0):
+        print('- ' + str(i) + '. ' + genre + '\n')
 
 
 def start_search():

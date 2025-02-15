@@ -16,11 +16,11 @@ def insert_genres():
 
 
 def start_search():
-    input("Would you like to search by name or genre? Write 'n' for 'name' and 'g' for 'genre': ")
-    if input == 'g':
+    search_type = str(input("Would you like to search by name or genre? Write 'n' for 'name' and 'g' for 'genre': "))
+    if search_type == 'g':
         print(insert_genres())
-    if input == 'n':
-        input = ('Please enter the name of first letter/s of the movie you are looking for: ')
+    if search_type == 'n':
+        neame_search = input ('Please enter the name of first letter/s of the movie you are looking for: ')
 
 
 call_program()

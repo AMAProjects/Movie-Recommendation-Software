@@ -15,8 +15,10 @@ def insert_genres():
         print('- ' + str(i) + '. ' + genre + '\n')
 
     chosen_genre = input('Please select the number corresponding to the genre you want to look for: ')
-    for genre in genres:
-        return movies[chosen_genre]
+    display_movies_from = genres[int(chosen_genre)]
+    print(f'\nThe movies in the {display_movies_from} genre are:\n' )
+    for movie in movies[display_movies_from]:
+        print(f'\n - {movie['title']}, \n   rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
 
 
 def start_search():

@@ -7,8 +7,9 @@ print_welcome()
 #Main function to process the programme
 def call_program():
     start_search()
+    
 
-#The 
+#Function search by genre
 def insert_genres():
     print('\n' + 'Perfect! Here are our available genres: ' + '\n')
     for i, genre in enumerate(genres, start = 0):
@@ -16,11 +17,22 @@ def insert_genres():
 
     chosen_genre = input('Please select the number corresponding to the genre you want to look for: ')
     display_movies_from = genres[int(chosen_genre)]
+
+    #Ask if user wants to apply any filters to their seach
+    apply_filters = input(f"\nBefore we display the movies under {display_movies_from} genre; Would you like to apply any filters to your search? \n\n Filters available: \n - Age rating \n - Movie rating \n\n Please indicate 'y' for yes or 'n' no:  ")
+    
+    if apply_filters.lower() == 'y':
+        pass #TO DO!
+    if apply_filters.lower() == 'n':
+        pass #TO DO
+    else:
+        print('Please enter a valid input')
+    
     print(f'\nThe movies in the {display_movies_from} genre are:\n' )
     for movie in movies[display_movies_from]:
         print(f'\n - {movie['title']}, \n   rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
 
-
+#Function to ask about search type
 def start_search():
     search_type = str(input("Would you like to search by name or genre? Write 'n' for 'name' and 'g' for 'genre': "))
     if search_type == 'g':

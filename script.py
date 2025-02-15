@@ -14,6 +14,10 @@ def insert_genres():
     for i, genre in enumerate(genres, start = 0):
         print('- ' + str(i) + '. ' + genre + '\n')
 
+    chosen_genre = input('Please select the number corresponding to the genre you want to look for: ')
+    for genre in genres:
+        return movies[chosen_genre]
+
 
 def start_search():
     search_type = str(input("Would you like to search by name or genre? Write 'n' for 'name' and 'g' for 'genre': "))

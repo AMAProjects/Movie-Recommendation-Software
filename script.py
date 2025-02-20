@@ -34,11 +34,20 @@ def start_search():
         neame_search = input ('Please enter the name of first letter/s of the movie you are looking for: ')
 
 #Apply filters function
-def filters(filtered_genre):
-    apply_filters = input(f"\nBefore we display the movies under {filtered_genre} genre; Would you like to apply any filters to your search? \n\n Filters available: \n - Age rating \n - Movie rating \n\n Please indicate 'y' for yes or 'n' no:  ")
-    
+def filters(filtered_item):
+    apply_filters = input(f"\nBefore we display the movies under {filtered_item} genre; Would you like to apply any filters to your search? \n\n Filters available: \n - Age rating \n - Movie rating \n\n Please indicate 'y' for yes or 'n' no:  ")
     if apply_filters.lower() == 'y':
-        pass #TO DO!
+        which_filters = input("Please introduce 'a' for age filters, 'r' for rating filters or 'b' to modify both filters: ")
+        if which_filters.lower() == 'a':
+            #TO DO
+        if which_filters.lower() == 'r':
+            #TO DO
+        if which_filters.lower() == 'b':
+            #TO DO
+        else:
+            print("Invalid input. Please enter 'a', 'r', or 'b'.")
+            filters(filtered_item)  # Recursively call to retry
+
     if apply_filters.lower() == 'n':
         pass #TO DO
     else:

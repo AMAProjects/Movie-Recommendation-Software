@@ -36,19 +36,32 @@ def start_search():
 #Apply filters function
 def filters(filtered_item):
     apply_filters = input(f"\nBefore we display the movies under {filtered_item} genre; Would you like to apply any filters to your search? \n\n Filters available: \n - Age rating \n - Movie rating \n\n Please indicate 'y' for yes or 'n' no:  ")
+    
+
     if apply_filters.lower() == 'y':
         which_filters = input("\nPlease introduce 'a' for age filters, 'r' for rating filters or 'b' to modify both filters: \n")
 
         if which_filters.lower() == 'a':
             age_limit = int(input("\nEnter the maximum age rating (e.g., 13, 16, 18): \n"))
-            print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and below:\n")
+
+            age_filtered_movies = [] #Created tokeep track of the movies that match the filters
 
             for movie in movies[filtered_item]:
                 movie_age = int(''.join(filter(str.isdigit, movie['age_recommendation'])))
                 if movie_age <= age_limit:
+                    age_filtered_movies.append(movie)
+            
+            if len(age_filtered_movies) > 0:
+                print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and below:\n")
+                for movie in age_filtered_movies:
                     print(f" - {movie['title']}, Rating: {movie['rating']}, Age: {movie['age_recommendation']}\n")
             
-            return
+            else:
+                print('\nThere seems to be no movies matching your criteria. Sorry :( \n')
+                print('Alternatively: ')
+
+            
+            return 
 
         if which_filters.lower() == 'r':
             #TO DO
@@ -60,10 +73,10 @@ def filters(filtered_item):
             print("Invalid input. Please enter 'a', 'r', or 'b'.")
             filters(filtered_item)  # Recursively call to retry
 
-    if apply_filters.lower() == 'n':
-        pass #TO DO
-    else:
-        print('Please enter a valid input')
+        if apply_filters.lower() == 'n':
+            pass #TO DO
+        else:
+            print('Please enter a valid input')
 
 
 call_program()

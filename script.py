@@ -119,15 +119,15 @@ def filters(filtered_item):
                     age_and_rating_filtered_movies.append(movie)
                 
 
-                if len(age_and_rating_filtered_movies) > 0:
-                    print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and rating of {rating}/5 or higher are:\n")
+            if len(age_and_rating_filtered_movies) > 0:
+                print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and rating of {rating}/5 or higher are:\n")
                     
-                    for movie in age_and_rating_filtered_movies:
+                for movie in age_and_rating_filtered_movies:
                         print(f" - {movie['title']}, Rating: {movie['rating']}, Age: {movie['age_recommendation']}\n")
 
-                else:
-                    print('\nThere seems to be no movies matching your criteria. Sorry :( \n')
-                    print('Alternatively: ')
+            else:
+                print('\nThere seems to be no movies matching your criteria. Sorry :( \n')
+                print('Alternatively: ')
                 
             return
 

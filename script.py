@@ -37,13 +37,25 @@ def start_search():
 def filters(filtered_item):
     apply_filters = input(f"\nBefore we display the movies under {filtered_item} genre; Would you like to apply any filters to your search? \n\n Filters available: \n - Age rating \n - Movie rating \n\n Please indicate 'y' for yes or 'n' no:  ")
     if apply_filters.lower() == 'y':
-        which_filters = input("Please introduce 'a' for age filters, 'r' for rating filters or 'b' to modify both filters: ")
+        which_filters = input("\nPlease introduce 'a' for age filters, 'r' for rating filters or 'b' to modify both filters: \n")
+
         if which_filters.lower() == 'a':
-            #TO DO
+            age_limit = int(input("\nEnter the maximum age rating (e.g., 13, 16, 18): \n"))
+            print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and below:\n")
+
+            for movie in movies[filtered_item]:
+                movie_age = int(''.join(filter(str.isdigit, movie['age_recommendation'])))
+                if movie_age <= age_limit:
+                    print(f" - {movie['title']}, Rating: {movie['rating']}, Age: {movie['age_recommendation']}\n")
+            
+            return
+
         if which_filters.lower() == 'r':
             #TO DO
+            rating = input("\nEnter the minimum rating ")
         if which_filters.lower() == 'b':
             #TO DO
+            pass
         else:
             print("Invalid input. Please enter 'a', 'r', or 'b'.")
             filters(filtered_item)  # Recursively call to retry

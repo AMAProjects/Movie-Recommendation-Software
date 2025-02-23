@@ -44,7 +44,7 @@ def filters(filtered_item):
         if which_filters.lower() == 'a':
             age_limit = int(input("\nEnter the maximum age rating (e.g., 13, 16, 18): \n"))
 
-            age_filtered_movies = [] #Created tokeep track of the movies that match the filters
+            age_filtered_movies = [] #Created to keep track of the movies that match the filters
 
             for movie in movies[filtered_item]:
                 movie_age = int(''.join(filter(str.isdigit, movie['age_recommendation'])))
@@ -64,8 +64,29 @@ def filters(filtered_item):
             return 
 
         if which_filters.lower() == 'r':
-            #TO DO
-            rating = input("\nEnter the minimum rating ")
+            rating = input("\nLooking for top-rated movies? Enter the minimum rating you'd consider (1-5, e.g., 4):  ")
+
+            rating_filtered_movies = []
+
+            for movie in movies[filtered_item]:
+                movie_split = movie['rating'].split('/')
+                
+                if int(movie_split[0]) >= int(rating):
+                    rating_filtered_movies.append(movie)
+            
+            if len(rating_filtered_movies) > 0:
+                print(f"\nMovies under {filtered_item} genre with a rating of {rating}/5 or higher:\n")
+
+                for movie in rating_filtered_movies:
+                    print(f" - {movie['title']}, Rating: {movie['rating']}, Age: {movie['age_recommendation']}\n")
+            
+            else:
+                print('\nThere seems to be no movies matching your criteria. Sorry :( \n')
+                print('Alternatively: ')
+
+
+
+                
         if which_filters.lower() == 'b':
             #TO DO
             pass

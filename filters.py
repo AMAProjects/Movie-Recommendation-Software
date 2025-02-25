@@ -69,6 +69,7 @@ def filters(filtered_item):
                 if movie_age <= age_limit and int(movie_split[0]) >= int(rating):
                     age_and_rating_filtered_movies.append(movie)
                 
+                
 
             if len(age_and_rating_filtered_movies) > 0:
                 print(f"\nMovies under {filtered_item} genre suitable for ages {age_limit} and rating of {rating}/5 or higher are:\n")

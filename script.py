@@ -37,8 +37,6 @@ def insert_genres():
         print("\nThank you for using the movie search program!\n")
         exit()
 
-   
-
 
 #Function to ask about search type
 def start_search():

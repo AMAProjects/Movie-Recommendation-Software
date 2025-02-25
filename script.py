@@ -25,7 +25,7 @@ def insert_genres():
     print(f'\nThe movies in the {display_movies_from_genre} genre are:\n' )
     for movie in movies[display_movies_from_genre]:
         
-        print(f'\n - {movie['title']}, \n   rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
+        print(f'\n - {movie['title']}, \n   Rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
         print('\n --------------------------------\n')
     
      # After this point, you can either exit or loop back to another function, but not start_search() again
@@ -51,6 +51,26 @@ def start_search():
         print("\nPlease select either 'g' or 'n'\n")
         start_search()
 
+
+
+def movie_name_search(movies_list, to_search):
+    to_search = input('\nPlease enter the movie name or the first few letters to search: ').lower()
+    
+    matching_names = []
+
+    for genre in movies:
+        for movie in genre:
+            if to_search in movie['title'].lower():
+                matching_names.append(movie)
+
+    print(f"\nSearching for titles that match '{to_search}'...\n\nResults:\n\n")
+ 
+    for item in matching_names:
+        print(f'\n - {movie['title']}, \n   Rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
+        
+
+
+    return movie_name_search(movies, to_search)
 
 
 

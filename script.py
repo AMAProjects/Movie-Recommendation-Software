@@ -28,14 +28,7 @@ def insert_genres():
         print(f'\n - {movie['title']}, \n   Rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}')
         print('\n --------------------------------\n')
     
-     # After this point, you can either exit or loop back to another function, but not start_search() again
-    again = input("\nWould you like to search again? (y/n) ").lower()
-
-    if again == 'y':
-        start_search()  # Call again if the user wants to start a new search  
-    else:
-        print("\nThank you for using the movie search program!\n")
-        exit()
+    
 
 
 #Function to ask about search type
@@ -50,6 +43,15 @@ def start_search():
     else:
         print("\nPlease select either 'g' or 'n'\n")
         start_search()
+    
+     # After this point, you can either exit or loop back to another function, but not start_search() again
+    again = input("\nWould you like to search again? (y/n) ").lower()
+
+    if again == 'y':
+        start_search()  # Call again if the user wants to start a new search  
+    else:
+        print("\nThank you for using the movie search program!\n")
+        exit()
 
 
 
@@ -71,7 +73,7 @@ def movie_name_search(movies_list, to_search):
         for movie in matching_names:
             print(f'\n - {movie['title']}, \n   Rating: {movie['rating']}  \n   Suitable for ages: {movie['age_recommendation']}\n')
     else:
-        print(f"No movies found matching '{to_search}'.")
+        print(f"Sorry, we did not find movies matching '{to_search}'.\n")
 
 call_program()
 

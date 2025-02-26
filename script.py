@@ -4,10 +4,6 @@ from filters import *
 
 print_welcome()
 
-
-#Main function to process the programme
-def call_program():
-    start_search()
     
 
 #Function search by genre
@@ -41,7 +37,7 @@ def insert_genres():
     
 
 
-#Function to ask about search type
+#main function to call search
 def start_search():
     search_type = str(input("Would you like to search by name or genre? Write 'n' for 'name' and 'g' for 'genre': "))
     if search_type.lower() == 'g':
@@ -85,7 +81,8 @@ def movie_name_search(movies_list, to_search):
     else:
         print(f"Sorry, we did not find movies matching '{to_search}'.\n")
 
-call_program()
+
+start_search()
 
 
 
